@@ -37,6 +37,8 @@ RUN curl -o ojs.tar.gz -SL http://pkp.sfu.ca/ojs/download/ojs-${OJS_VERSION}.tar
     && mv /var/www/ojs-${OJS_VERSION} /var/www/ojs \
   && chown -R www-data:www-data /var/www/ojs
 
+COPY PKPRequest.inc.php /var/www/ojs/lib/pkp/classes/core/PKPRequest.inc.php
+
 # creating a directory to save uploaded files.
 RUN mkdir /var/www/files \
   && chown -R www-data:www-data /var/www/files
