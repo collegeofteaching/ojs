@@ -368,8 +368,7 @@ class PKPRequest {
 	 * @return string
 	 */
 	function getProtocol() {
-		$_this->_protocol = 'https';
-		return $_this->_protocol;
+		return 'https';
 	}
 
 	/**
