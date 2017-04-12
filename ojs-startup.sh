@@ -5,7 +5,8 @@ sed -i -e "s/password = ojs/password = ${OJS_DB_PASSWORD}/g" /var/www/ojs/config
 sed -i -e "s/name = ojs/name = ${OJS_DB_NAME}/g" /var/www/ojs/config.inc.php
 
 sed -i -e "s#base_url = [\"]http://pkp.sfu.ca/ojs[\"]#base_url = \"${BASE_URL}\"#g" /var/www/ojs/config.inc.php
-sed -i -e "s/installed = Off/installed = On/g" /var/www/ojs/config.inc.php
+sed -i -e "s/installed = Off/installed = ${OJS_INSTALLED}/g" /var/www/ojs/config.inc.php
+sed -i -e "s#salt = [\"]YouMustSetASecretKeyHere!![\"]#salt = ${OJS_SALT}#g" /var/www/ojs/config.inc.php
 
 sed -i -e "s/\/var\/www\/html/\/var\/www\/ojs/g" /etc/apache2/sites-available/000-default.conf
 sed -i -e "s/www.example.com/${SERVERNAME}/g" /etc/apache2/sites-available/000-default.conf
